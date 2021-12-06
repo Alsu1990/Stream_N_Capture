@@ -48,27 +48,26 @@ wire                o_pass;
 wire [NSTREAM-1:0]  o_stream;
 wire [NCAPTURE-1:0]  i_capture;     
 /////////////////////////////////////
-Pattern_Stream_N_Capture_2V0 #(
-    .SIZE(SIZE),
+StreamNCapture #(
     .NSTREAM(NSTREAM),
     .NCAPTURE(NCAPTURE))
 DUT(
-    .i_clk(i_clk),
-    .i_rstn(i_rstn),
-    .i_size(i_size),
-    .i_op_mode(i_op_mode),
-    .i_go(i_go),
-    .i_read_valid(i_read_valid),
-    .i_read_data(i_read_data),
-    .o_read_request(o_read_request),
-    .o_write_valid(o_write_valid),
-    .i_write_accept(i_write_accept),
-    .o_write_data(o_write_data),
-    .o_write_request(o_write_request),
-    .o_finish(o_finish),
-    .o_pass(o_pass),
-    .o_stream(o_stream),
-    .i_capture(i_capture)
+    .sys_clk(i_clk),
+    .sys_arstn(i_rstn),
+    .size(i_size),
+    .op_mode(i_op_mode),
+    .go(i_go),
+    .r_valid(i_read_valid),
+    .r_data(i_read_data),
+    .r_req(o_read_request),
+    .w_valid(o_write_valid),
+    .w_accept(i_write_accept),
+    .w_data(o_write_data),
+    .w_req(o_write_request),
+    .finish(o_finish),
+    .pass(o_pass),
+    .stream(o_stream),
+    .capture(i_capture)
     );
 
 initial begin
